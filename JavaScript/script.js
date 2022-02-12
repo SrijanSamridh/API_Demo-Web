@@ -29,6 +29,7 @@ $.ajax({
 heading.html("Welcome 1<sup>st</sup> API Testing!");
 heading.css({
     color:"red",
+    margin:"5%",
     marginTop:"10px",
 });
 
@@ -38,22 +39,24 @@ imageOutput.css({
     borderRadius:"30px",
     width:"400px",
     height:"400px",
+    boxShadow: "0px 2px 8px",
 });
+imageOutput.attr('src', "https://cdn.pixabay.com/photo/2017/08/07/18/57/dog-2606759__480.jpg");
 
 // ---BUTTON SECTION----
 button.css({
     color:"red",
-    opacity:"0.5",
+    backgroundColor: "white",
     width:"100px",
     height:"100px",
     margin:"5%",
-    marginTop:"10px",
     borderRadius:"30px",
     boxShadow: "0px 4px 20px",
 });
 button.mouseover(function(){
     button.css({
         backgroundColor:"transparent",
+        opacity:"0.7",
         border:"2px solid white",
         color:"lightgreen",
         transition:"0.3s",
