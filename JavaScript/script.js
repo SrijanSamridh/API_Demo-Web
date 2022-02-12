@@ -68,6 +68,9 @@ function fetchRandomDogImage(){
             boxShadow:"0px 10px 50px cyan",
         });
     };
+    xhrRequest.onerror = function(){
+        console.log("Request Failed!");
+    };
     xhrRequest.open('get','https://dog.ceo/api/breeds/image/random', true);
     xhrRequest.send(); */
 
@@ -81,14 +84,19 @@ function fetchRandomDogImage(){
             imageOutput.css({
                 boxShadow:"0px 10px 50px cyan",
             });
-        }
+        },
+    }).fail(function(){
+        console.log('error');
     }); */
+
     $.get('https://dog.ceo/api/breeds/image/random', function(data){
          var imageURL = data.message;
          imageOutput.attr('src', imageURL);
          imageOutput.css({
              boxShadow:"0px 10px 50px cyan",
          });
+    }).fail(function(xhr, textStatus, errorThrown){
+        console.log("Request Failed!");
     });
 }
 
