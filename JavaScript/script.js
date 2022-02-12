@@ -6,8 +6,24 @@ var imageOutput = $("#image_output");
 var heading = $("h1");
 
 // -----BODY-----
-body.css("background-color", "black");
+// body.css("background-color", "black");
 body.css("color", "white");
+
+function changeBackgroundImage(data){
+    var image = data.url;
+    body.css({
+    backgroundImage: 'url(' + image + ')',
+    backgroundRepeat:"no-repeat",
+    backgroundSize:"cover",
+
+    });
+}
+
+$.ajax({
+    url: "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY",
+    method: "GET",
+    success: changeBackgroundImage
+});
 
 // ----TEXT SECTION----
 heading.html("Welcome 1<sup>st</sup> API Testing!");
@@ -27,15 +43,17 @@ imageOutput.css({
 // ---BUTTON SECTION----
 button.css({
     color:"red",
-    width:"150px",
-    height:"150px",
+    opacity:"0.5",
+    width:"100px",
+    height:"100px",
     margin:"5%",
     marginTop:"10px",
     borderRadius:"30px",
+    boxShadow: "0px 4px 20px",
 });
 button.mouseover(function(){
     button.css({
-        backgroundColor:"black",
+        backgroundColor:"transparent",
         border:"2px solid white",
         color:"lightgreen",
         transition:"0.3s",
